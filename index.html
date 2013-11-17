@@ -17,10 +17,14 @@ html,body,.largemap { width: 100%; height: 100%; padding: 0px; margin: 0px;}
 
 var map = new OpenLayers.Map("map");
 
-var ol_wms = new OpenLayers.Layer.OSM(
-);
+map.addLayer(new OpenLayers.Layer.OSM());
+map.addLayer(new OpenLayers.Layer.OSM("Humanitarian", ["http://a.tile.openstreetmap.fr/hot/${z}/${x}/${y}.png"]));
 
-map.addLayers([ol_wms]);
+map.addLayer(new OpenLayers.Layer.OSM("Leyte1", "https://d.tiles.mapbox.com/v3/char.Leyte1/${z}/${x}/${y}.png"), {isBaseLayer: false});
+map.addLayer(new OpenLayers.Layer.OSM("Leyte2", "https://d.tiles.mapbox.com/v3/char.Leyte2/${z}/${x}/${y}.png"), {isBaseLayer: false});
+map.addLayer(new OpenLayers.Layer.OSM("Yolanda3", "https://d.tiles.mapbox.com/v3/char.Yolanda3/${z}/${x}/${y}.png"), {isBaseLayer: false});
+map.addLayer(new OpenLayers.Layer.OSM("Yolanda4", "https://d.tiles.mapbox.com/v3/char.Yolanda4/${z}/${x}/${y}.png"), {isBaseLayer: false});
+
 map.addControl(new OpenLayers.Control.LayerSwitcher());
 //map.zoomToMaxExtent();
 var lon = 125.0855;
